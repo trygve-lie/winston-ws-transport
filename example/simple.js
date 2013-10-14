@@ -3,7 +3,7 @@
 "use strict";
 
 var winston     = require('winston'),
-    winstonWs   = require('./');
+    winstonWs   = require('../');
 
 
 
@@ -29,6 +29,7 @@ var log = new (winston.Logger)({
             level               : 'debug',
             colorize            : true,
             handleExceptions    : true,
+            authKey             : 'changeme',
             levels              : {
                                     debug   : 0,
                                     info    : 1,
