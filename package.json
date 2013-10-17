@@ -1,22 +1,22 @@
 {
     "name": "winston-ws-transport",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": {
         "name": "Trygve Lie",
         "email": "post@trygve-lie.com"
     },
-    "description": "Winston WebSocket transport",
+    "description": "Winston WebSocket Transport",
     "main": "./lib/transport",
     "repository": {
         "type": "git",
-        "url": "git@github.com:ladestasjoner/chargelizer-realtime.git"
+        "url": "git@github.com:trygve-lie/winston-ws-transport.git"
     },
     "keywords": [
         "log",
         "winston",
         "websocket"
     ],
-    "homepage": "http://chargelizer-realtime.jit.su/",
+    "homepage": "https://github.com/trygve-lie/winston-ws-transport",
     "scripts": {
         "pretest": "jshint ./lib/*.js ./test/*.js",
         "test": "mocha ./test/*.js --reporter spec"
@@ -31,9 +31,9 @@
         "node": "0.10.x"
     },
     "bugs": {
-        "url": "https://github.com/ladestasjoner/chargelizer-realtime/issues"
+        "url": "https://github.com/trygve-lie/winston-ws-transport/issues"
     },
-    "licenses": [],
+    "license" : "MIT",
     "devDependencies": {
         "express": "latest",
         "jshint": "latest",
