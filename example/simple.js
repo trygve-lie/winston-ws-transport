@@ -49,7 +49,8 @@ var log = new (winston.Logger)({
 
 
 // Schedule some logging
-log.info('hello');
+
+log.info('Start logging');
 setInterval(function(){
-    log.info('The time is: ' + new Date());
+    log.debug('The time is: ' + new Date());
 }, 1000);
