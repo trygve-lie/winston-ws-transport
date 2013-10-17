@@ -23,18 +23,18 @@ var colors = {
     error   : 'red'
 };
 
-var log = new (winston.Logger)({
+var log = new winston.Logger({
     levels      : levels,
     colors      : colors,
     exitOnError : false,
     transports  : [
-        new (winston.transports.Console)({
+        new winston.transports.Console({
             silent              : false,
             level               : 'debug',
             colorize            : true,
             handleExceptions    : true
         }),
-        new (winstonWs.WebSocket)({
+        new winstonWs.WebSocket({
             silent              : false,
             level               : 'debug',
             colorize            : true,
