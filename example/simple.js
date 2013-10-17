@@ -9,13 +9,23 @@ var winston     = require('winston'),
 
 // Set up logger with a custom debug level
 
+var levels = {
+    debug   : 0,
+    info    : 1,
+    warn    : 2,
+    error   : 3
+};
+
+var colors = {
+    debug   : 'blue',
+    info    : 'green',
+    warn    : 'yellow',
+    error   : 'red'
+};
+
 var log = new (winston.Logger)({
-    levels: {
-        debug   : 0,
-        info    : 1,
-        warn    : 2,
-        error   : 3
-    },
+    levels      : levels,
+    colors      : colors,
     exitOnError : false,
     transports  : [
         new (winston.transports.Console)({
@@ -30,29 +40,11 @@ var log = new (winston.Logger)({
             colorize            : true,
             handleExceptions    : true,
             authKey             : 'changeme',
-            levels              : {
-                                    debug   : 0,
-                                    info    : 1,
-                                    warn    : 2,
-                                    error   : 3
-                                },
-            colors              : {
-                                    debug   : 'blue',
-                                    info    : 'green',
-                                    warn    : 'yellow',
-                                    error   : 'red'
-                                }
+            levels              : levels,
+            colors              : colors
         })
     ]
 });
-
-winston.addColors({
-    debug   : 'blue',
-    info    : 'green',
-    warn    : 'yellow',
-    error   : 'red'
-});
-
 
 
 
