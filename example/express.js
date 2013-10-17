@@ -2,8 +2,21 @@
 
 "use strict";
 
-var winston     = require('winston'),
-    winstonWs   = require('../');
+var http        = require('http'),
+    winston     = require('winston'),
+    express     = require('express'),
+    winstonWs   = require('../'),
+    app         = express();
+
+
+
+app.get('/', function(req, res){
+    res.json({hello:'world'});
+});
+
+var httpServer = http.createServer(app);
+httpServer.listen(7070);
+
 
 
 
@@ -40,6 +53,7 @@ var log = new (winston.Logger)({
             colorize            : true,
             handleExceptions    : true,
             authKey             : 'changeme',
+            server              : httpServer,
             levels              : levels,
             colors              : colors
         })
@@ -50,7 +64,7 @@ var log = new (winston.Logger)({
 
 // Schedule some logging
 
-log.info('Simple example starts logging');
+log.info('Start logging');
 setInterval(function(){
     log.debug('The time is: ' + new Date());
 }, 1000);

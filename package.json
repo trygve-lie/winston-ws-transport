@@ -35,6 +35,7 @@
     },
     "licenses": [],
     "devDependencies": {
+        "express": "latest",
         "jshint": "latest",
         "mocha": "latest",
         "chai": "latest"
