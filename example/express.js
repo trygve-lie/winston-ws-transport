@@ -19,7 +19,6 @@ httpServer.listen(7070);
 
 
 
-
 // Set up logger with a custom debug level
 
 var levels = {
@@ -36,27 +35,34 @@ var colors = {
     error   : 'red'
 };
 
+var transportConsole = new winston.transports.Console({
+    silent              : false,
+    level               : 'debug',
+    colorize            : true,
+    handleExceptions    : true
+});
+
+var transportWs = new winstonWs.WebSocket({
+    silent              : false,
+    level               : 'debug',
+    colorize            : true,
+    handleExceptions    : true,
+    levels              : levels,
+    colors              : colors
+
+}).start({
+    authKey             : 'changeme',
+    server              : httpServer
+
+});
+
 var log = new winston.Logger({
     levels      : levels,
     colors      : colors,
     exitOnError : false,
     transports  : [
-        new winston.transports.Console({
-            silent              : false,
-            level               : 'debug',
-            colorize            : true,
-            handleExceptions    : true
-        }),
-        new winstonWs.WebSocket({
-            silent              : false,
-            level               : 'debug',
-            colorize            : true,
-            handleExceptions    : true,
-            authKey             : 'changeme',
-            server              : httpServer,
-            levels              : levels,
-            colors              : colors
-        })
+        transportConsole,
+        transportWs
     ]
 });
 
