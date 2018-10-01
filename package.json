@@ -41,7 +41,7 @@
         "chai": "latest"
     },
     "dependencies": {
-        "winston": "0.7.x",
-        "ws": "0.4.x"
+        "winston": "~3.1.0",
+        "ws": "~6.0.0"
     }
 }
